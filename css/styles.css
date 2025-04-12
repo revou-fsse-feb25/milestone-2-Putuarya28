@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    display: flex;
+    flex-direction: column;
+    background-color:black;
+    overflow-x: hidden;
+}
+
+p {
+    color: white;
+}
+
+header {
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    color: rgb(255, 255, 255);
+}
+
+.container-header  {
+    display: flex;
+    flex-direction: row;
+    gap: 50vw;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    position: sticky;
+    margin-top: 2rem;
+
+}
+
+#toggle {
+    display: none;
+}
+
+.container-header #header-title {
+    margin-left: 10rem;
+    padding: .44rem;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1rem;
+    /* margin: 0;
+    padding: 0; */
+    width: 20vw;
+    list-style: none;
+    display: none;
+    color: white;
+    padding: .6rem;
+    
+}
+
+ul li a {
+    display: flex;
+    width: max-content;
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.hamburger {
+    position: absolute;
+    color: white;
+    margin-left: calc(100vw - 7rem);
+    /* order: 2; */
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    padding: 0;
+    cursor: pointer;
+    mix-blend-mode: difference;
+}
+
+#toggle:checked ~ .container-header .hamburger {
+    display: flex;
+    justify-content: center;
+    transform: rotate(90deg);
+    width: 20px;
+    margin-left: calc(100vw - 7rem);
+}
+
+#toggle:checked ~ .container-header ul li {
+    display: flex;
+}
+
+
+#toggle:checked ~ .container-header #header-title {
+    display: none;
+}
+
+
+.hero {
+    position: relative;
+    height: 40vw;
+    overflow: hidden;
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+}
+
+.hero img {
+    position: absolute;
+    width: 100%;
+    height: 140%;
+}
+
+.gamelist {
+    position: relative;
+    z-index: 1;
+}
+
+.gamelist-container {
+    display: none;
+    position: absolute;
+    width: max-content;
+    background-color: rgba(0, 0, 0, 0.336);
+    border-radius: .5rem;
+    padding: 2rem 1rem 2rem 1rem;
+    z-index: 0;
+}
+
+
+
+
+
+.gamelist-container ul li {
+    width: max-content;
+}
+
+#toggle-gamelist {
+    display: none;
+}
+
+.gamelist:hover ~ .gamelist-container,
+.gamelist-container:hover {
+    display: flex;
+}
+

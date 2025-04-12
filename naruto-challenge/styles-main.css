@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 12px;
+    cursor: url('asset/cursor-konoha.png'), auto;
+}
+
+body {
+    position: relative;
+    background-image: url('asset/ichiraku-bg-mobile.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 1rem;
+    
+}
+
+#naruto-feedback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #000000; */
+    width: 70vw;
+    height: 40vh;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+#feedback-container {
+    display: flex;
+    width: 70vw;
+    height: 40vh;
+    justify-content: center;
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10% 90%,
+        transparent
+    );
+    top: 400px;
+    z-index: 2;
+}
+
+#feedback-image {
+    display: none;
+    top: 15%;
+    left: -25%;
+    width: 150%;
+}
+
+#ichiraku-menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fec494;
+    width: 70vw;
+    height: max-content;
+    border-radius: 2rem;
+}
+
+.ichiraku-logo {
+    width: 10rem;
+}
+
+.choices-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 40% 70%,
+        transparent
+    );
+    width: 60vw;
+    height: 25rem;
+    /* padding: 2rem; */
+    padding-top: .2rem;
+}
+
+.choices-container .indomie, .sedaap {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+
+/* INDOMIE animation */
+.choices-container .indomie .variant {
+    position: absolute;
+    top: 10px;
+    width: var(--width);
+    height: var(--height);
+    right: 100%;
+    animation: indomie-slide 7s linear infinite;
+    animation-delay: calc( (7s / var(--quantity)) * (var(--position) - 1) );
+    transition: filter .5s;
+}
+
+/* SEDAAP animation */
+.choices-container .sedaap .variant {
+    position: absolute;
+    top: 80px;
+    width: var(--width);
+    height: var(--height);
+    left: 100%;
+    animation: sedaap-slide 7s linear infinite;
+    animation-delay: calc( (7s / var(--quantity)) * (var(--position) - 1) );
+    transition: filter .5s;
+}
+
+
+.choices-container .indomie .variant img, .sedaap .variant img {
+    width: 100%;
+}
+
+@keyframes indomie-slide {
+	from {
+        right: 100%;
+    }
+    to {
+        right: calc(var(--width) * -1);
+    }
+}
+
+@keyframes sedaap-slide {
+	from {
+        left: 100%;
+    }
+    to {
+        left: calc(var(--width) * -1);
+    }
+}
+
+.indomie:hover .variant {
+    animation-play-state: paused!important;
+    filter: grayscale(1);
+}
+
+.choices-container .indomie .variant:hover {
+    animation-play-state: paused!important;
+    filter: grayscale(0);
+}
+
+.sedaap:hover .variant {
+    animation-play-state: paused!important;
+    filter: grayscale(1);
+}
+
+.choices-container .sedaap .variant:hover {
+    animation-play-state: paused!important;
+    filter: grayscale(0);
+}
+
+.score-container {
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    justify-content: center;
+}
+
+#score {
+    width: max-content;
+    padding: .2rem 2rem .2rem 2rem;
+    background-color: #784216;
+    border-radius: 2rem;
+    font-size: 2rem;
+}
+
+#score-text {
+    color: #fec494;
+}
+
+#score-value {
+    font-size: 2rem;
+    color: #fec494;
+    left: 220px;
+    z-index: 1;
+}
+
+
+.finalscore-container {
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    justify-content: center;
+}
+
+#finalscore-wrapper {
+    width: max-content;
+    padding: .2rem 2rem .2rem 2rem;
+    background-color: #784216;
+    border-radius: 2rem;
+    font-size: 2rem;
+}
+
+#finalScore-value {
+    font-size: 2rem;
+    color: #fec494;
+    left: 220px;
+    z-index: 1;
+}
+
+.clue #clue-indomie {
+    display: none;
+}
+
+.clue #clue-sedaap {
+    display: none;
+}
+
+#game-over {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+}
+
+#game-over #final-score {
+    width: max-content;
+    padding: .2rem 2rem .2rem 2rem;
+    background-color: #784216;
+    border-radius: 2rem;
+    font-size: 2rem;
+}
+
+#play-again {
+    transform: scale(1.1);
+    transition: .2s;
+}
+
+
+@media screen and (min-width: 425px) {
+    #feedback-image {
+        top: 6%;
+    }
+}
+
+@media screen and (min-width: 525px) {
+    #feedback-image {
+        top: 10%;
+    }
+}
+
+@media screen and (min-width: 625px) {
+    #feedback-image {
+        top: 5%;
+        width: 145%;
+    }
+}
+
+@media screen and (min-width: 725px) {
+    #feedback-image {
+        top: 0;
+        width: 140%;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    #feedback-image {
+        width: 140%;
+        top: -5%;   
+    }
+}
+
+@media screen and (min-width: 825px) {
+    #feedback-image {
+        top: -10%;
+    }
+}
+
+@media screen and (min-width: 925px) {
+    #feedback-image {
+        top: -18%;
+        width: 130%;
+        left: -15%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #feedback-image {
+        top: -18%;
+        width: 120%;
+        left: -10%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .naruto-feedback {
+        width: 70vw;
+        height: 60vh;
+    }
+
+    #naruto-challenge {
+        width: 70%;
+    }
+
+    #feedback-container {
+        width: 70vw;
+        height: 60vh;
+    }
+
+    #feedback-image {
+        top: -18%;
+        left: 0;
+        width: 100%;
+    }
+
+    #score-text {
+        font-size: 4rem;
+    }
+
+    #score-value {
+        font-size: 4rem;
+    }
+    #ichiraku-menu {
+        width: 70vw;
+        height: 50vh;
+    }
+    
+    .choices-container {
+        mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10% 70%,
+        transparent
+    );
+        width: 60vw;
+        height: 50vh;
+    }
+
+    .choices-container .sedaap .variant, .choices-container .indomie .variant  {
+        width: 100px;
+        height: 100px;   
+    }
+
+    .choices-container .indomie, .sedaap {
+        min-width: calc(100px * 5);
+    }
+
+    .choices-container .sedaap {
+        top: 40px;
+    }
+}
+    
+    

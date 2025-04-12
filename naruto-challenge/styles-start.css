@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 12px;
+    
+}
+
+body {
+    background-image: url('asset/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+
+.naruto-challenge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    height: 100vh;
+    border-radius: 2rem;
+}
+
+.naruto-challenge .naruto {
+    width: 100%;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+}
+
+.naruto-challenge .start-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.naruto-challenge .accept:hover, .refuse:hover {
+    transform: scale(1.1);
+    transition: .2s;
+}
+
+
+
+
+

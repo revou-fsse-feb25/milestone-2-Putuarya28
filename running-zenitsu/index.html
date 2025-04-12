@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Movement</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <video id="video-bg" autoplay muted loop class="background-video">
+        <source src="assets/background-ezgif.com-gif-to-mp4-converter.mp4" type="video/mp4">
+    </video>
+
+    <img id="image-bg" src="assets/bg-portrait-static.gif" alt="">
+
+    <div class="container">
+        <div class="game-container" id="game-container">
+            <div class="gold-container">
+                <div id="gold-text">Gold : </div>
+                <div id="gold-value">0</div>
+            </div>
+
+            <div class="highest-gold">
+                <div id="highest-text">Highest Gold : </div>
+                <div id="highest-value">0</div>
+            </div>
+
+            <img class="arena-bg" id="arena-bg" src="assets/background-arena.gif">
+            <img id="character" src="assets/idle.gif" alt="Character">
+            <div id="gameover-text">
+                <span>GAME OVER</span>
+            </div>
+        </div>
+
+        <div class="start-container">
+           <img class="button start-button" src="assets/start-button.gif">
+        </div>
+
+        <button class="restart">Restart Game</button>
+
+    </div>
+
+    
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
