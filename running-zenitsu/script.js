@@ -1,5 +1,6 @@
 const gameContainer = document.querySelector(".game-container");
 const character = document.getElementById("character");
+let isGameOver = false;
 const gameOverText = document.getElementById("gameover-text")
 const idleGif = "assets/idle.gif";
 const runningGif = "assets/running.gif";
@@ -17,6 +18,7 @@ let spawnGoldInterval;
 let gameStarted = false;
 let highestGold = 0;
 let lastGold = 0
+document.addEventListener("contextmenu", (event) => event.preventDefault());
 
 // Start game function
 function startGame() {
@@ -174,38 +176,49 @@ document.addEventListener("keyup", (event) => {
     
 
 // MOBILE MOVEMENTS
-document.getElementById("arrow-left").addEventListener("touchstart", () => startMoving("left"));
-document.getElementById("arrow-left").addEventListener("touchend", stopMoving);
-
-document.getElementById("arrow-right").addEventListener("touchstart", () => startMoving("right"));
-document.getElementById("arrow-right").addEventListener("touchend", stopMoving);
-        
-
 let moveInterval;
-let currentDirection = null; // Track current movement direction
+let activeTouches = new Set(); // Track active touch inputs
 
 function startMoving(direction) {
-    if (currentDirection === direction) return; // Prevent restarting same direction
-    currentDirection = direction;
-  
-    moveInterval = setInterval(() => {
-        if (direction === "left") {
-            positionX -= speed;
-            character.style.left = `${positionX}%`;
-            character.style.transform = "scaleX(1)"; // Ensure correct facing
-        } else if (direction === "right") {
-            positionX += speed;
-            character.style.left = `${positionX}%`;
-            character.style.transform = "scaleX(-1)";
-        }
-    }, 50);
+    activeTouches.add(direction); // Store active button press
+
+    if (!isRunning) {
+        character.src = runningGif; // Set running animation
+        isRunning = true;
+    }
+
+    if (!moveInterval) {
+        moveInterval = setInterval(() => {
+            if (activeTouches.has("left") && !activeTouches.has("right")) {
+                positionX -= speed;
+                character.style.left = `${positionX}%`;
+                character.style.transform = "scaleX(1)";
+            } else if (activeTouches.has("right") && !activeTouches.has("left")) {
+                positionX += speed;
+                character.style.left = `${positionX}%`;
+                character.style.transform = "scaleX(-1)";
+            }
+        }, 70); // Adjusted interval for smoother speed
+    }
 }
 
-function stopMoving() {
-    clearInterval(moveInterval);
-    currentDirection = null; // Reset movement state
+function stopMoving(direction) {
+    activeTouches.delete(direction); // Remove button press
+
+    if (activeTouches.size === 0) { // Stop movement only when no buttons are held
+        clearInterval(moveInterval);
+        moveInterval = null;
+        isRunning = false;
+        character.src = idleGif; // Reset to idle when stopping
+    }
 }
 
+// Attach event listeners for touch controls
+document.getElementById("arrow-left").addEventListener("touchstart", () => startMoving("left"));
+document.getElementById("arrow-left").addEventListener("touchend", () => stopMoving("left"));
+
+document.getElementById("arrow-right").addEventListener("touchstart", () => startMoving("right"));
+document.getElementById("arrow-right").addEventListener("touchend", () => stopMoving("right"));
 
 
 
