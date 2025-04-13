@@ -53,7 +53,7 @@ function switchFormat() {
   if (window.innerWidth < 1024) {
     feedbackImage.style.display = "block"
     feedbackVideo.style.display = "none"
-    feedbackVideo.src = ""
+    feedbackVideo.src = "none"
 
   } else {
     feedbackVideo.style.display = "block"
