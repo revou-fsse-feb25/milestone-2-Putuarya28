@@ -148,25 +148,7 @@ body {
     }
 }
 
-.indomie:hover .variant {
-    animation-play-state: paused!important;
-    filter: grayscale(1);
-}
 
-.choices-container .indomie .variant:hover {
-    animation-play-state: paused!important;
-    filter: grayscale(0);
-}
-
-.sedaap:hover .variant {
-    animation-play-state: paused!important;
-    filter: grayscale(1);
-}
-
-.choices-container .sedaap .variant:hover {
-    animation-play-state: paused!important;
-    filter: grayscale(0);
-}
 
 .score-container {
     display: flex;
@@ -306,7 +288,26 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
+    .indomie:hover .variant {
+        animation-play-state: paused!important;
+        filter: grayscale(1);
+    }
     
+    .choices-container .indomie .variant:hover {
+        animation-play-state: paused!important;
+        filter: grayscale(0);
+    }
+    
+    .sedaap:hover .variant {
+        animation-play-state: paused!important;
+        filter: grayscale(1);
+    }
+    
+    .choices-container .sedaap .variant:hover {
+        animation-play-state: paused!important;
+        filter: grayscale(0);
+    }
+
     .naruto-feedback {
         width: 70vw;
         height: 60vh;
