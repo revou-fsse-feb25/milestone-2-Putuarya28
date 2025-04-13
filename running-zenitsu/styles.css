@@ -18,6 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
+    height: 100vh;
 }
 
 #image-bg {
@@ -169,6 +170,18 @@ button {
 }
 .start-button:active {
     transform: scale(1);
+}
+
+#arrow-button {
+    display: none;
+    justify-content: center;
+    gap: 200px;
+    width: 80vw;
+    margin-top: 40rem;
+}
+
+#arrow-button img {
+    width: 20%;
 }
 
 

@@ -1,3 +1,4 @@
+const gameContainer = document.querySelector(".game-container");
 const character = document.getElementById("character");
 const gameOverText = document.getElementById("gameover-text")
 const idleGif = "assets/idle.gif";
@@ -25,6 +26,7 @@ function startGame() {
     document.getElementById("game-container").style.display = "flex"
     document.getElementById("video-bg").style.display = "none"
     document.getElementById("image-bg").style.display = "flex"
+    document.getElementById("arrow-button").style.display = "flex"
 }
 
 const startButton = document.getElementsByClassName("start-button")[0];
@@ -170,7 +172,39 @@ document.addEventListener("keyup", (event) => {
     }
 });
     
+
+// MOBILE MOVEMENTS
+document.getElementById("arrow-left").addEventListener("touchstart", () => startMoving("left"));
+document.getElementById("arrow-left").addEventListener("touchend", stopMoving);
+
+document.getElementById("arrow-right").addEventListener("touchstart", () => startMoving("right"));
+document.getElementById("arrow-right").addEventListener("touchend", stopMoving);
         
+
+let moveInterval;
+let currentDirection = null; // Track current movement direction
+
+function startMoving(direction) {
+    if (currentDirection === direction) return; // Prevent restarting same direction
+    currentDirection = direction;
+  
+    moveInterval = setInterval(() => {
+        if (direction === "left") {
+            positionX -= speed;
+            character.style.left = `${positionX}%`;
+            character.style.transform = "scaleX(1)"; // Ensure correct facing
+        } else if (direction === "right") {
+            positionX += speed;
+            character.style.left = `${positionX}%`;
+            character.style.transform = "scaleX(-1)";
+        }
+    }, 50);
+}
+
+function stopMoving() {
+    clearInterval(moveInterval);
+    currentDirection = null; // Reset movement state
+}
 
 
 
@@ -185,7 +219,7 @@ setInterval(() => {
     });
 }, 50);
 
-const gameContainer = document.querySelector(".game-container");
+
 
 function createDeadlyComet() {
     const comet = document.createElement("img");
