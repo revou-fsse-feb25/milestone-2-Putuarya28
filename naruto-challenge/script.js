@@ -17,7 +17,7 @@ let imageIds = Array.from(images).map(img => img.id);
 let selectedImageId = imageIds[Math.floor(Math.random() * imageIds.length)];
 console.log(selectedImageId);
 
-let attempt = 3
+let attempt = 4
 let isGameOver = false
 let currentScore = 0
 let playingTime = 0
@@ -55,7 +55,7 @@ images.forEach(img => {
 
     const clickedImageId = img.id;
     if (clickedImageId === selectedImageId) {
-      currentScore += 10;
+      currentScore += 100;
       console.log ("score: ", currentScore);
       updateScore();
       
