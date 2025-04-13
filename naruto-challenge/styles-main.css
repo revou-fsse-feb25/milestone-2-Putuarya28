@@ -35,6 +35,10 @@ body {
 }
 
 #feedback-container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
     display: flex;
     width: 70vw;
     height: 40vh;
@@ -46,7 +50,6 @@ body {
         black 10% 90%,
         transparent
     );
-    top: 400px;
     z-index: 2;
 }
 
@@ -58,6 +61,7 @@ body {
 }
 
 #ichiraku-menu {
+    position: fixed;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -169,6 +173,7 @@ body {
     flex-direction: row;
     width: 70vw;
     justify-content: center;
+    margin-top: 0;
 }
 
 #score {
@@ -188,6 +193,7 @@ body {
     color: #fec494;
     left: 220px;
     z-index: 1;
+    margin-top: -20%;
 }
 
 
@@ -239,6 +245,7 @@ body {
 #play-again {
     transform: scale(1.1);
     transition: .2s;
+    margin-top: 10rem;
 }
 
 
@@ -299,6 +306,7 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
+    
     .naruto-feedback {
         width: 70vw;
         height: 60vh;
@@ -311,6 +319,7 @@ body {
     #feedback-container {
         width: 70vw;
         height: 60vh;
+        top: 10%;
     }
 
     #feedback-image {

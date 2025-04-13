@@ -51,8 +51,6 @@ let feedbackTimeout;
 
 images.forEach(img => {
   img.addEventListener('click', () => {
-    playingTime++
-    console.log ("playing time :", playingTime);
     if (isGameOver) return;
 
     const clickedImageId = img.id;
@@ -61,11 +59,9 @@ images.forEach(img => {
       console.log ("score: ", currentScore);
       updateScore();
       
-  
-      
-      ichirakuMenu.style.display = "none";
+      ichirakuMenu.style.opacity = "0";
       setTimeout(() => {
-        ichirakuMenu.style.display = "flex"
+        ichirakuMenu.style.opacity = "1"
       }, 4000);
       feedbackContainer.style.display = "flex"
       setTimeout(() => {
@@ -89,9 +85,9 @@ images.forEach(img => {
       attempt--;
       if (attempt > 0) {
 
-        ichirakuMenu.style.display = "none";
+        ichirakuMenu.style.opacity = "0";
         setTimeout(() => {
-        ichirakuMenu.style.display = "flex"
+        ichirakuMenu.style.opacity = "1"
         }, 2000);
         feedbackContainer.style.display = "flex"
         setTimeout(() => {
