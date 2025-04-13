@@ -34,10 +34,10 @@ function finalScore() {
 
 //feedback pictures
 const feedbackPictures = {
-  correct: './asset/naruto-correct.gif',
-  gameover: './asset/naruto-gameover.gif', 
-  wrong: './asset/naruto-wrong.gif',
-  narutoEating: './asset/naruto-eating.gif'
+  correct: 'naruto-challenge\asset\naruto-correct.mp4',
+  gameover: 'naruto-challenge\asset\naruto-wrong.mp4', 
+  wrong: 'naruto-challenge\asset\naruto-wrong.mp4',
+  narutoEating: 'naruto-challenge\asset\naruto-eating.mp4'
 };
 
 
