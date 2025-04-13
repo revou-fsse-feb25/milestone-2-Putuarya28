@@ -1,6 +1,7 @@
 // Get all image elements from the DOM
 const images = document.querySelectorAll('#indomie img, #sedaap img');
 const feedbackImage = document.getElementById('feedback-image');
+const feedbackVideo = document.getElementById('feedback-video');
 const feedbackContainer = document.getElementById ('naruto-feedback')
 const ichirakuMenu = document.getElementById ('ichiraku-menu'); 
 const gameOver = document.getElementById ('game-over')
@@ -33,12 +34,33 @@ function finalScore() {
 
 
 //feedback pictures
-const feedbackPictures = {
+const pictures = {
+  correct: 'asset/naruto-correct-static.jpg',
+  gameover: 'asset/naruto-gameover-static.png', 
+  wrong: 'asset/naruto-wrong-static.png',
+  narutoEating: 'asset/naruto-eating-static.png'
+};
+
+const video = {
   correct: 'asset/naruto-correct.mp4',
   gameover: 'asset/naruto-gameover.mp4', 
   wrong: 'asset/naruto-wrong.mp4',
   narutoEating: 'asset/naruto-eating.mp4'
 };
+
+function switchFormat() {
+  
+  if (window.innerWidth < 1024) {
+    feedbackImage.style.display = "block"
+    feedbackVideo.style.display = "none"
+  } else {
+    feedbackVideo.style.display = "block"
+    feedbackImage.style.display = "none"
+  }
+}
+
+window.onload = switchFormat;
+window.addEventListener("resize", switchFormat);
 
 
 // restart game
@@ -67,14 +89,13 @@ images.forEach(img => {
       setTimeout(() => {
         feedbackContainer.style.display = "none"
       }, 4000);
-
-
-      feedbackImage.src = feedbackPictures.correct;
-      feedbackImage.style.display = "block";
-      
+      feedbackImage.src = pictures.correct;    
+      feedbackVideo.src = video.correct
+      switchFormat();
 
       setTimeout(() => {
-        feedbackImage.src = feedbackPictures.narutoEating;
+        feedbackImage.src = pictures.narutoEating;
+        feedbackVideo.src = video.narutoEating;
 
         // Reset the game state and select a new target
         setTimeout(() => {
@@ -93,24 +114,24 @@ images.forEach(img => {
         setTimeout(() => {
         feedbackContainer.style.display = "none"
         }, 2000);
-        
 
-        feedbackImage.src = feedbackPictures.wrong;
-        feedbackImage.style.display = "block"
+        feedbackImage.src = pictures.wrong;
+        feedbackVideo.src = video.wrong;
+        switchFormat();
 
         if (clueIndomie.contains(document.getElementById(selectedImageId))) {
           console.log("Indomie selected! Time to enjoy some legendary noodles.");
           showclueIndomie.style.display = "block"
           setTimeout (() => {
             showclueIndomie.style.display = "none";
-          }, 3000)
+          }, 2000)
           
         } else if (clueSedaap.contains(document.getElementById(selectedImageId))) {
           console.log("Sedaap selected! Get ready for a delicious experience.");
           showclueSedaap.style.display = "block"
           setTimeout (() => {
             showclueSedaap.style.display = "none";
-          }, 3000)
+          }, 2000)
         } else {
           console.log("No valid image found.");
         }
@@ -121,7 +142,8 @@ images.forEach(img => {
         }, 2000);
       } else {
         ichirakuMenu.style.display = "none";
-        feedbackImage.src = feedbackPictures.gameover;
+        feedbackImage.src = pictures.gameover;
+        feedbackVideo.src = video.gameover;
         isGameOver = true;
         gameOver.style.display = "flex"
         scoreDisplay.style.display = "none"
@@ -138,6 +160,7 @@ images.forEach(img => {
     attempt = 5; // Reset attempts
     feedbackImage.src = ""; // Clear any feedback images
     feedbackImage.style.display = "none"; // Hide feedback image
+    switchFormat();
   
   
     // Randomly select a new target image

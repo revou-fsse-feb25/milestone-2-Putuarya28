@@ -63,11 +63,12 @@ body {
     width: 150%;
 }
 
-#feedback-image video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+#feedback-video {
+    display: none;
+    top: 15%;
+    left: -25%;
+    width: 150%;
+}
 
 #ichiraku-menu {
     position: fixed;
@@ -204,20 +205,25 @@ body {
     font-size: 2rem;
 }
 
+#finalscore-text {
+    color: #fec494;
+}
+
 #finalScore-value {
-    font-size: 2rem;
     color: #fec494;
     left: 220px;
     z-index: 1;
 }
 
-.clue #clue-indomie {
+.clue #clue-indomie, #clue-sedaap {
     display: none;
+    background-color: #fec494;
+    color: #784216;
+    width: max-content;
+    padding: 1rem;
+    border-radius: 1rem;
 }
 
-.clue #clue-sedaap {
-    display: none;
-}
 
 #game-over {
     display: none;
@@ -295,9 +301,22 @@ body {
         width: 120%;
         left: -10%;
     }
+
+    .clue #clue-indomie{
+        font-size: 2rem;
+    }
+
+    .clue #clue-sedaap{
+        font-size: 2rem;
+    }
 }
 
 @media screen and (min-width: 1440px) {
+
+    html {
+        font-size: 15px;
+    }
+
     .indomie:hover .variant {
         animation-play-state: paused!important;
         filter: grayscale(1);
