@@ -89,11 +89,13 @@ images.forEach(img => {
       setTimeout(() => {
         feedbackContainer.style.display = "none"
       }, 4000);
+      switchFormat();
       feedbackImage.src = pictures.correct;    
       feedbackVideo.src = video.correct
-      switchFormat();
+      
 
       setTimeout(() => {
+        switchFormat();
         feedbackImage.src = pictures.narutoEating;
         feedbackVideo.src = video.narutoEating;
 
@@ -115,9 +117,10 @@ images.forEach(img => {
         feedbackContainer.style.display = "none"
         }, 2000);
 
+        switchFormat();
         feedbackImage.src = pictures.wrong;
         feedbackVideo.src = video.wrong;
-        switchFormat();
+        
 
         if (clueIndomie.contains(document.getElementById(selectedImageId))) {
           console.log("Indomie selected! Time to enjoy some legendary noodles.");
@@ -142,6 +145,7 @@ images.forEach(img => {
         }, 2000);
       } else {
         ichirakuMenu.style.display = "none";
+        switchFormat();
         feedbackImage.src = pictures.gameover;
         feedbackVideo.src = video.gameover;
         isGameOver = true;
