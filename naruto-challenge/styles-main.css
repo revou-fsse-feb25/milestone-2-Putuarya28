@@ -207,7 +207,6 @@ h1 {
     color: #fec494;
     left: 220px;
     z-index: 1;
-    margin-top: -20%;
 }
 
 
@@ -393,7 +392,7 @@ h1 {
     }
     #ichiraku-menu {
         width: 70vw;
-        height: 50vh;
+        height: 40vh;
     }
     
     .choices-container {
