@@ -62,6 +62,7 @@ body {
 
 #ichiraku-menu {
     position: fixed;
+    margin-top: -10rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -155,7 +156,7 @@ body {
     flex-direction: row;
     width: 70vw;
     justify-content: center;
-    margin-top: 0;
+    margin-top: 2rem;
 }
 
 #score {
@@ -175,7 +176,6 @@ body {
     color: #fec494;
     left: 220px;
     z-index: 1;
-    margin-top: -20%;
 }
 
 
@@ -184,6 +184,7 @@ body {
     flex-direction: row;
     width: 70vw;
     justify-content: center;
+    margin-top: 5rem;
 }
 
 #finalscore-wrapper {
@@ -227,7 +228,7 @@ body {
 #play-again {
     transform: scale(1.1);
     transition: .2s;
-    margin-top: 10rem;
+    margin-top: 5rem;
 }
 
 
@@ -329,6 +330,10 @@ body {
         width: 100%;
     }
 
+    .score-container {
+        margin-top: 10rem;
+    }
+
     #score-text {
         font-size: 4rem;
     }
@@ -338,7 +343,7 @@ body {
     }
     #ichiraku-menu {
         width: 70vw;
-        height: 50vh;
+        height: 40vh;
     }
     
     .choices-container {
