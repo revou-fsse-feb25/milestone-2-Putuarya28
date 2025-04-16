@@ -7,34 +7,76 @@
 body {
     display: flex;
     height: 100vh;
+    width: 100vw;
+}
+
+.background {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.timer-container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    padding : .2rem 2rem .2rem 2rem;
+    transform: translate(-50%);
+    background-color: azure;
+    width: max-content;
+    border-radius: 1rem;
+}
+
+.score {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    padding : .2rem 2rem .2rem 2rem;
+    bottom: -10%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: azure;
+    width: max-content;
+    border-radius: 1rem;
 }
 
 .memory-game {
-    /* border: 2px solid green; */
-    display: flex;
-    flex-wrap: wrap;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    display: grid;
+    gap: .2rem; /* Ensures uniform spacing */
+    width: 80vw;
     margin: auto;
-    width: 50vw;
-    height: 80vh;
-    border: 2px solid gold;
-    perspective: 1000px;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(4, 1fr); /* 4 rows */
+}
+
+.memory-card {
+    aspect-ratio: 3 / 4; /* Keeps cards square */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    width: 100%;
 }
 
 img {
     width: 100px;
+    object-fit: contain;
 }
 
 
-.memory-card {
-    width: calc(25% - 10px);
-    height: auto;
-    border: 2px solid red;
+/* .memory-card {
+    width: calc(20% - 10px);
+    height: calc(25% - 10px);;
     position: relative;
     margin: 5px;
     transform: scale(1);
     transform-style: preserve-3d;
     transition: transform .5s;
-}
+} */
 
 .memory-card.flip {
     transform: rotateY(180deg);
@@ -56,4 +98,27 @@ img {
 
 .front-face {
     transform: rotateY(180deg);
+}
+
+
+#endGame {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50vw;
+    background-color: aliceblue;
+    z-index: 1000;
+    border-radius: .2rem;
+
+
+}
+
+#lose, #win, #restart {
+    display: none;
 }
