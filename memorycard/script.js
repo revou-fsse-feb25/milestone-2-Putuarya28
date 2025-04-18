@@ -11,8 +11,9 @@ let finalScore = 0;
 let countdown;
 
 
-startCountdown();
 function startCountdown() {
+    document.getElementById("startButton").style.display = "none";
+
     clearInterval(countdown);
 
     countdown = setInterval(() => {
