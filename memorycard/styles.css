@@ -17,6 +17,27 @@ body {
     background-position: center;
 }
 
+#header-title {
+    color: white;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 3rem;
+    z-index: 1000;
+}
+
+
+
+h1 {
+    font-size: 2rem;
+    font-family: "syncopate", serif;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; */
+    text-shadow: azure;
+    mix-blend-mode: difference;
+}
+
 .container {
     display: flex;
     position: relative;

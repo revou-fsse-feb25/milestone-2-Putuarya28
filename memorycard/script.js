@@ -10,6 +10,8 @@ let scoreCount = 0;
 let finalScore = 0;
 let countdown;
 
+// Ensure cards are unclickable before the game starts
+cards.forEach(card => card.removeEventListener('click', flipcard));
 
 function startCountdown() {
     document.getElementById("startButton").style.display = "none";
@@ -23,18 +25,19 @@ function startCountdown() {
             timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
             timeLeft--;
         } else {
-            clearInterval(countdown); // Stop the timer when it reaches 0
-            
-            // Make all cards unclickable
+            clearInterval(countdown);
             cards.forEach(card => card.removeEventListener('click', flipcard));
 
             document.getElementById("endGame").style.display = "flex";
             document.getElementById("lose").style.display = "block";
+            document.getElementById("win").style.display = "none";
             document.getElementById("restart").style.display = "block";
         }
     }, 1000);
-}
 
+    // Enable clicking only after the game starts
+    cards.forEach(card => card.addEventListener('click', flipcard));
+}
 function flipcard() {
     if (lockBoard) return;
     if (this === firstCard) return;
@@ -123,5 +126,5 @@ function restartGame() {
 }
 
 restartButton.addEventListener('click', restartGame)
-cards.forEach(card => card.addEventListener('click', flipcard));
+
 

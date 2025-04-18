@@ -14,6 +14,26 @@ body {
     background-color: black;
 }
 
+#header-title {
+    color: white;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 3rem;
+    z-index: 1000;
+}
+
+
+
+h1 {
+    font-size: 2rem;
+    font-family: "syncopate", serif;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; */
+    text-shadow: azure;
+}
+
 .bg-portrait {
     display: flex;
     justify-content: center;
