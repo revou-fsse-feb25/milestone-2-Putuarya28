@@ -1,13 +1,14 @@
 const cards = document.querySelectorAll('.memory-card');
+const timerElement = document.getElementById("timer");
+const score = document.getElementById("score-value");
+const restartButton = document.getElementById("restart");
 let lockBoard = false;
 let hasFlippedCard = false;
 let firstCard, secondCard;
-let timeLeft = 5;
-const timerElement = document.getElementById("timer");
-const score = document.getElementById("score-value");
+let timeLeft = 60;
 let scoreCount = 0;
-let finalScore = 0
-let countdown
+let finalScore = 0;
+let countdown;
 
 
 startCountdown();
@@ -33,8 +34,6 @@ function startCountdown() {
     }, 1000);
 }
 
-
-
 function flipcard() {
     if (lockBoard) return;
     if (this === firstCard) return;
@@ -50,7 +49,7 @@ function flipcard() {
 }
 
 function checkMatch() {
-    let isMatched = firstCard.dataset.romangods === secondCard.dataset.romangods;
+    let isMatched = firstCard.dataset.character === secondCard.dataset.character;
     isMatched ? disableCard() : unflipCard();
     if (isMatched) {
         scoreCount += 10;
@@ -86,10 +85,7 @@ function shuffleCard() {
         card.style.order = randomPos;
     });
 }
-
-// Call it initially to shuffle cards at the start
 shuffleCard();
-
 
 function bonusScore () {
     finalScore = scoreCount * (timeLeft + 1)
@@ -98,7 +94,10 @@ function bonusScore () {
 function endGame() {
     if (scoreCount === 80) {
         clearInterval(countdown);
-        finalScore = scoreCount * (timeLeft + 1);        
+        finalScore = scoreCount * (timeLeft + 1);    
+        document.getElementById("endGame").style.display = "flex";
+        document.getElementById("win").style.display = "block";
+        document.getElementById("restart").style.display = "block";
     } else {
         score.innerHTML = scoreCount;
     }
@@ -111,21 +110,17 @@ function restartGame() {
     });
 
     scoreCount = 0;
-    timeLeft = 30;
+    timeLeft = 60;
     score.innerHTML = scoreCount;
-
-    shuffleCard(); // Shuffle cards
-
+    shuffleCard();
     clearInterval(countdown);
     startCountdown();
-
-    // Hide the endGame elements when restarting
+    
     document.getElementById("endGame").style.display = "none";
     document.getElementById("lose").style.display = "none";
     document.getElementById("restart").style.display = "none";
 }
 
-const restartButton = document.getElementById("restart");
 restartButton.addEventListener('click', restartGame)
 cards.forEach(card => card.addEventListener('click', flipcard));
 

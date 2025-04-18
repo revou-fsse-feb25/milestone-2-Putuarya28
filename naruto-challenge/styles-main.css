@@ -5,12 +5,12 @@
 
 html {
     font-size: 12px;
-    cursor: url('asset/cursor-konoha.png'), auto;
+    cursor: url('naruto-challenge-assets/cursor-konoha.png'), auto;
 }
 
 body {
     position: relative;
-    background-image: url('asset/ichiraku-bg-mobile.jpg');
+    background-image: url('naruto-challenge-assets/ichiraku-bg-mobile.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -21,6 +21,28 @@ body {
     margin: 1rem;
     
 }
+
+#header-title {
+    color: white;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 2rem;
+}
+
+h1 {
+    font-size: 1.2rem;
+    font-family: "syncopate", serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow:
+          0 0 5px #ff3d9e,
+          0 0 10px #ff3df5,
+          0 0 20px #402e2e,
+          0 0 40px #402e2e,
+          0 0 80px #402e2e;
+    }
 
 #naruto-feedback {
     display: none;

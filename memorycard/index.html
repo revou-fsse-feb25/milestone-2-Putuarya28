@@ -7,109 +7,105 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-
 <body>
-
-    <img class="background" src="asset/background-1.jpg" alt="">
-
-    <div class="timer-container">
-        <p id="timer"></p>
-    </div>
-
-    <section class="memory-game">
-        <div class="memory-card" data-romangods="ichigo">
-            <img class="front-face" src="asset/ichigo.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
+    <div class="container">
+        <div class="timer-container">
+            <p id="timer"></p>
         </div>
-
-        <div class="memory-card" data-romangods="ichigo">
-            <img class="front-face" src="asset/ichigo.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="itachi">
-            <img class="front-face" src="asset/itachi.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="itachi">
-            <img class="front-face" src="asset/itachi.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="kirito">
-            <img class="front-face" src="asset/kirito.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="kirito">
-            <img class="front-face" src="asset/kirito.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="levi">
-            <img class="front-face" src="asset/levi.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="levi">
-            <img class="front-face" src="asset/levi.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="naruto">
-            <img class="front-face" src="asset/naruto.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="naruto">
-            <img class="front-face" src="asset/naruto.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="natsu">
-            <img class="front-face" src="asset/natsu.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="natsu">
-            <img class="front-face" src="asset/natsu.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="tanjiro">
-            <img class="front-face" src="asset/tanjiro.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="tanjiro">
-            <img class="front-face" src="asset/tanjiro.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="zenitsu">
-            <img class="front-face" src="asset/zenitsu.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="memory-card" data-romangods="zenitsu">
-            <img class="front-face" src="asset/zenitsu.png" alt="ceres">
-            <img class="back-face" src="asset/backface.png" alt="backface">
-        </div>
-
-        <div class="score">
-            <p id="score-text">Score: </p>
-            <p id="score-value">0</p>
-        </div>
-    </section>
     
-    <div id="endGame">
-        <p id="lose">Time's up!!!</p>
-        <p id="win">Congrats</p>
-        <button id="restart">Restart</button>
-    </div>
+        <section class="memory-game">
+            <div class="memory-card" data-character="ichigo">
+                <img class="front-face" src="memory-assets/ichigo.png" alt="ichigo">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
     
-
+            <div class="memory-card" data-character="ichigo">
+                <img class="front-face" src="memory-assets/ichigo.png" alt="ichigo">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="itachi">
+                <img class="front-face" src="memory-assets/itachi.png" alt="itachi">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="itachi">
+                <img class="front-face" src="memory-assets/itachi.png" alt="itachi">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="kirito">
+                <img class="front-face" src="memory-assets/kirito.png" alt="kirito">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="kirito">
+                <img class="front-face" src="memory-assets/kirito.png" alt="kirito">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="levi">
+                <img class="front-face" src="memory-assets/levi.png" alt="levi">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="levi">
+                <img class="front-face" src="memory-assets/levi.png" alt="levi">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="naruto">
+                <img class="front-face" src="memory-assets/naruto.png" alt="naruto">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="naruto">
+                <img class="front-face" src="memory-assets/naruto.png" alt="naruto">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="natsu">
+                <img class="front-face" src="memory-assets/natsu.png" alt="natsu">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="natsu">
+                <img class="front-face" src="memory-assets/natsu.png" alt="natsu">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="tanjiro">
+                <img class="front-face" src="memory-assets/tanjiro.png" alt="tanjiro">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="tanjiro">
+                <img class="front-face" src="memory-assets/tanjiro.png" alt="tanjiro">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="zenitsu">
+                <img class="front-face" src="memory-assets/zenitsu.png" alt="zenitsu">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="memory-card" data-character="zenitsu">
+                <img class="front-face" src="memory-assets/zenitsu.png" alt="zenitsu">
+                <img class="back-face" src="memory-assets/backface.png" alt="backface">
+            </div>
+    
+            <div class="score">
+                <p id="score-text">Score: </p>
+                <p id="score-value">0</p>
+            </div>
+        </section>
+        
+        <div id="endGame">
+            <p id="lose">Time's up!!!</p>
+            <p id="win">Congratulations!!!</p>
+            <button id="restart">Restart</button>
+        </div>
+    </div>
     <script src="script.js"></script> 
 </body>
 </html>

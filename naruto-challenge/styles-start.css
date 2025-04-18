@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background-image: url('asset/background.jpg');
+    background-image: url('naruto-challenge-assets/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;

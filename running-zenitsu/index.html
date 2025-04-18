@@ -8,11 +8,15 @@
 </head>
 <body>
 
-    <video id="video-bg" autoplay muted loop class="background-video">
-        <source src="assets/background-ezgif.com-gif-to-mp4-converter.mp4" type="video/mp4">
+    <video id="bg-portrait" autoplay muted loop class="bg-portrait">
+        <source src="running-zenitsu-assets/bg-portrait.mp4" type="video/mp4">
+    </video>
+    
+    <video id="bg-landscape" autoplay muted loop class="bg-landscape">
+        <source src="running-zenitsu-assets/bg-landscape.mp4" type="video/mp4">
     </video>
 
-    <img id="image-bg" src="assets/bg-portrait-static.gif" alt="">
+    <img id="image-bg" src="running-zenitsu-assets/bg-portrait-static.png" alt="">
 
     <div class="container">
         <div class="game-container" id="game-container">
@@ -26,21 +30,21 @@
                 <div id="highest-value">0</div>
             </div>
 
-            <img class="arena-bg" id="arena-bg" src="assets/background-arena.gif">
-            <img id="character" src="assets/idle.gif" alt="Character">
+            <img class="arena-bg" id="arena-bg" src="running-zenitsu-assets/background-arena.gif">
+            <img id="character" src="running-zenitsu-assets/idle.gif" alt="Character">
             <div id="gameover-text">
                 <span>GAME OVER</span>
             </div>
         </div>
 
         <div class="start-container">
-           <img class="button start-button" src="assets/start-button.gif">
+           <img class="button start-button" src="running-zenitsu-assets/start-button.gif">
         </div>
 
-        <div id="arrow-button">
-            <img id="arrow-left" src="assets/left-arrow.svg">
-            <img id="arrow-right" src="assets/right-arrow.svg">
-        </div>
+        <!-- <div id="arrow-button">
+            <img id="arrow-left" src="running-zenitsu-assets/left-arrow.svg">
+            <img id="arrow-right" src="running-zenitsu-assets/right-arrow.svg">
+        </div> -->
 
 
         <button class="restart">Restart Game</button>

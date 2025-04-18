@@ -1,4 +1,3 @@
-// Get all image elements from the DOM
 const images = document.querySelectorAll('#indomie img, #sedaap img');
 const feedbackImage = document.getElementById('feedback-image');
 const feedbackVideo = document.getElementById('feedback-video');
@@ -12,44 +11,38 @@ const clueIndomie = document.getElementById ('indomie');
 const clueSedaap = document.getElementById ('sedaap');
 let showclueIndomie = document.getElementById ('clue-indomie')
 let showclueSedaap = document.getElementById ('clue-sedaap')
-
-// Randomly select one image
 let imageIds = Array.from(images).map(img => img.id);
 let selectedImageId = imageIds[Math.floor(Math.random() * imageIds.length)];
-console.log(selectedImageId);
-
+// console.log(selectedImageId);
 let attempt = 4
 let isGameOver = false
 let currentScore = 0
 let playingTime = 0
+let feedbackTimeout;
 
+const pictures = {
+  correct: 'naruto-challenge-assets/naruto-correct-static.jpg',
+  gameover: 'naruto-challenge-assets/naruto-gameover-static.png', 
+  wrong: 'naruto-challenge-assets/naruto-wrong-static.png',
+  narutoEating: 'naruto-challenge-assets/naruto-eating-static.png'
+};
 
-// Function to update the score on the webpage
+const video = {
+  correct: 'naruto-challenge-assets/naruto-correct.mp4',
+  gameover: 'naruto-challenge-assets/naruto-gameover.mp4', 
+  wrong: 'naruto-challenge-assets/naruto-wrong.mp4',
+  narutoEating: 'naruto-challenge-assets/naruto-eating.mp4'
+};
+
 function updateScore() {
-  scoreValue.innerText = currentScore; // Update the score value in the HTML
+  scoreValue.innerText = currentScore;
 }
+
 function finalScore() {
   finalScoreValue.innerText = currentScore;
 }
 
-
-//feedback pictures
-const pictures = {
-  correct: 'asset/naruto-correct-static.jpg',
-  gameover: 'asset/naruto-gameover-static.png', 
-  wrong: 'asset/naruto-wrong-static.png',
-  narutoEating: 'asset/naruto-eating-static.png'
-};
-
-const video = {
-  correct: 'asset/naruto-correct.mp4',
-  gameover: 'asset/naruto-gameover.mp4', 
-  wrong: 'asset/naruto-wrong.mp4',
-  narutoEating: 'asset/naruto-eating.mp4'
-};
-
-function switchFormat() {
-  
+function switchFormat() {  
   if (window.innerWidth < 1024) {
     feedbackImage.style.display = "block"
     feedbackVideo.style.display = "none"
@@ -63,15 +56,6 @@ function switchFormat() {
 
 window.onload = switchFormat;
 window.addEventListener("resize", switchFormat);
-
-
-// restart game
-
-
-
-// Add click event listeners to each image
-
-let feedbackTimeout;
 
 images.forEach(img => {
   img.addEventListener('click', () => {
@@ -101,15 +85,13 @@ images.forEach(img => {
         feedbackImage.src = pictures.narutoEating;
         feedbackVideo.src = video.narutoEating;
 
-        // Reset the game state and select a new target
         setTimeout(() => {
-          restartGame(); // Restart the game to continue guessing
-        }, 2000); // Delay to show the transition image
+          restartGame();
+        }, 2000);
       }, 2000);
     } else {
       attempt--;
       if (attempt > 0) {
-
         ichirakuMenu.style.opacity = "0";
         setTimeout(() => {
         ichirakuMenu.style.opacity = "1"
@@ -118,7 +100,6 @@ images.forEach(img => {
         setTimeout(() => {
         feedbackContainer.style.display = "none"
         }, 2000);
-
         switchFormat();
         feedbackImage.src = pictures.wrong;
         feedbackVideo.src = video.wrong;
@@ -143,7 +124,7 @@ images.forEach(img => {
 
         console.log(attempt)
         feedbackTimeout = setTimeout(() => {
-          feedbackImage.src = ""; // Hide the feedback image
+          feedbackImage.src = "";
         }, 2000);
       } else {
         ichirakuMenu.style.display = "none";
@@ -155,28 +136,24 @@ images.forEach(img => {
         scoreDisplay.style.display = "none"
         feedbackContainer.style.display = "flex"
         finalScore();
-
-        
       }
     }
   })
 
   function restartGame() {
-    isGameOver = false; // Unlock the game state
-    attempt = 5; // Reset attempts
-    feedbackImage.src = ""; // Clear any feedback images
-    feedbackImage.style.display = "none"; // Hide feedback image
+    isGameOver = false;
+    attempt = 5;
+    feedbackImage.src = "";
+    feedbackImage.style.display = "none";
     switchFormat();
   
-  
-    // Randomly select a new target image
     const newImageId = imageIds[Math.floor(Math.random() * imageIds.length)];
   
     while (newImageId === selectedImageId) {
       selectedImageId = imageIds[Math.floor(Math.random() * imageIds.length)];
     }
     selectedImageId = newImageId;
-    console.log("New target image ID:", selectedImageId);
+    // console.log("New target image ID:", selectedImageId);
   }
 
 });
