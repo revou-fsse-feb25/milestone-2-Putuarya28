@@ -27,8 +27,7 @@ const elements = {
   let spawnAkazaInterval;
 
   if (/Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
-    document.body.innerHTML = "<h2>Sorry, this game is not available on mobile devices.</h2>";
-    throw new Error("This game is under development for mobile users");
+    window.location.href = "not-supported.html"; // Redirect to a custom page
 }
 
 function startGame() {
