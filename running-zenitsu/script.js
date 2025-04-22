@@ -56,7 +56,7 @@ function stopIntervals() {
 function resumeIntervals() {
     stopIntervals();
     spawnAkazaInterval = setInterval(createAkazaHead, 1000);
-    spawnGoldInterval = setInterval(createFallingObject, 1000);
+    spawnGoldInterval = setInterval(createFallingGold, 1000);
 }
 
 function gameOver() {
@@ -260,38 +260,38 @@ let collisionInterval = setInterval(() => {
     document.querySelectorAll(".falling-object, .akaza").forEach(object => checkCollision(object));
 }, 50);
 
-function createFallingObject() {
-    const fallingObject = document.createElement("img");
-    fallingObject.src = "running-zenitsu-assets/gold.png"; 
-    fallingObject.classList.add("falling-object");
+function createFallingGold() {
+    const fallingGold = document.createElement("img");
+    fallingGold.src = "running-zenitsu-assets/gold.png"; 
+    fallingGold.classList.add("falling-object");
 
-    fallingObject.style.left = `${Math.random() * 90}%`;
-    fallingObject.style.top = "-50px";
+    fallingGold.style.left = `${Math.random() * 90}%`;
+    fallingGold.style.top = "-50px";
 
-    elements.gameContainer.appendChild(fallingObject);
+    elements.gameContainer.appendChild(fallingGold);
 
     let fallSpeed = 5;
     let positionY = -50;
 
     const fallInterval = setInterval(() => {
         positionY += fallSpeed;
-        fallingObject.style.top = `${positionY}px`;
+        fallingGold.style.top = `${positionY}px`;
 
         if (positionY > window.innerHeight) {
             clearInterval(fallInterval);
-            fallingObject.remove();
+            fallingGold.remove();
         }
     }, 30);
 
     function checkCollision() {
         const characterRect = character.getBoundingClientRect();
-        const fallingObjectRect = fallingObject.getBoundingClientRect();
+        const fallingGoldRect = fallingGold.getBoundingClientRect();
     
         if (
-            characterRect.left < fallingObjectRect.right &&
-            characterRect.right > fallingObjectRect.left &&
-            characterRect.top < fallingObjectRect.bottom &&
-            characterRect.bottom > fallingObjectRect.top
+            characterRect.left < fallingGoldRect.right &&
+            characterRect.right > fallingGoldRect.left &&
+            characterRect.top < fallingGoldRect.bottom &&
+            characterRect.bottom > fallingGoldRect.top
         ) {
             collectItem();
         }
@@ -300,7 +300,7 @@ function createFallingObject() {
     function collectItem() {
         currentGold += 10;
         updateGold();
-        fallingObject.style.display = "none";
+        fallingGold.style.display = "none";
     }
     setInterval(checkCollision, 50);
 }

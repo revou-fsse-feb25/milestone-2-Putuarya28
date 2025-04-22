@@ -158,6 +158,7 @@ ul li a {
 
 .game-overview {
     display: flex;
+    margin-top: 2rem;
     flex-direction: row;
     width: 90vw;
     justify-content: center;
