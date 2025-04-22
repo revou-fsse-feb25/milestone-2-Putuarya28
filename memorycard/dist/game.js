@@ -12,6 +12,13 @@ let scoreCount = 0;
 let finalScore = 0;
 let countdown;
 cards.forEach(card => card.removeEventListener('click', flipcard));
+window.onload = () => {
+    const startButton = document.getElementById("startButton");
+    if (startButton) {
+        startButton.disabled = false;
+        console.log("button enabled");
+    }
+};
 function startCountdown() {
     const startButton = document.getElementById("startButton");
     if (startButton)

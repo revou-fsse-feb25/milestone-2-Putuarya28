@@ -16,6 +16,16 @@ let countdown: number;
 // Ensure cards are unclickable before the game starts
 cards.forEach(card => card.removeEventListener('click', flipcard));
 
+
+window.onload = () => {
+    const startButton = document.getElementById("startButton") as HTMLButtonElement;
+
+    if (startButton) {
+        startButton.disabled = false;
+        console.log("button enabled")
+    }
+};
+
 function startCountdown(): void {
     const startButton = document.getElementById("startButton");
     if (startButton) startButton.style.display = "none";
