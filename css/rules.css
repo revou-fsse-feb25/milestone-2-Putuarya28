@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    /* background-image: url("main-assets/tanjiro-bg.jpg"); */
+}
+
+img {
+    position: relative;
+    width: 80vw;
+    z-index: 0;
+    transform: scaleX(-1);
+}
+
+article {
+    /* position: absolute; */
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    color: white;
+    z-index: 1;
+    mix-blend-mode: difference;
+}
+
+article ul li {
+    color: white;
+    font-weight: 200;
+    list-style:circle;
+    margin: 0;
+}
+
+article ol li {
+    font-size: 2rem;
+    font-family: "syncopate", serif;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: azure;
+      letter-spacing: 0.1em;
+      text-shadow: none;
+      margin: 0;
+    }
+
+article ul li {
+    font-size: 1rem;
+}
+
+article ul {
+    margin-bottom: 2rem;
+}
+
+article h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 80vw;
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 2rem;
+}
+
+article h3 {
+    font-size: 1.2rem;
+    font-family: "goldman", serif;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 0.1em;
+    font-size: 2rem;
+    text-shadow:whitesmoke;
+    margin: 0;
+    margin-top: 2rem;
+}
+
+article strong {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+p {
+    color: white;
+    margin: 0;
+    margin-bottom: 2rem;
+
+}
+

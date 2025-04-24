@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 12px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('memory-assets/background-1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#header-title {
+    color: white;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 3rem;
+    z-index: 1000;
+}
+
+
+
+h1 {
+    font-size: 2rem;
+    font-family: "syncopate", serif;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; */
+    text-shadow: azure;
+    mix-blend-mode: difference;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    width: 100vw;
+    height: 100vh;
+}
+
+.background {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.timer-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 15%;
+    left: 50%;
+    padding : .5rem 2rem .5rem 2rem;
+    transform: translate(-50%);
+    background-color: azure;
+    width: max-content;
+    border-radius: 1rem;
+}
+
+.score {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    padding : .2rem 2rem .2rem 2rem;
+    bottom: -8%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: azure;
+    width: max-content;
+    border-radius: 1rem;
+}
+
+.memory-game {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    display: grid;
+    gap: .2rem; /* Ensures uniform spacing */
+    width: 80vw;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(4, 1fr); /* 4 rows */
+}
+
+.memory-card {
+    aspect-ratio: 3 / 4; /* Keeps cards square */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    width: 100%;
+}
+
+img {
+    width: 100px;
+    object-fit: contain;
+}
+
+
+/* .memory-card {
+    width: calc(20% - 10px);
+    height: calc(25% - 10px);;
+    position: relative;
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+} */
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.memory-card:active {
+    transform: scale(.95);
+    transition: transform .2s;
+}
+
+.front-face,
+.back-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+
+#endGame {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem 2rem .5rem 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    width: max-content;
+    background-color: aliceblue;
+    z-index: 1000;
+    border-radius: .2rem;
+}
+
+#lose, #win, #restart {
+    display: none;
+    margin: .5rem;
+}
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    .background {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+    }
+
+    .memory-game {
+        width: 50vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    html {
+        font-size: 20px;
+    }
+    
+    .background {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        /* object-fit: ; */
+    }
+
+    .memory-game {
+        width: 25vw;
+    }
+}

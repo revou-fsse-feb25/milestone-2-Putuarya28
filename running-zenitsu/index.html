@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Movement</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="container-header">
+            <a href="../index.html"> <h1 id="header-title">RevoFun</h1></a> 
+        </div>                 
+    </header>
+
+    <video id="bg-portrait" autoplay muted loop class="bg-portrait">
+        <source src="running-zenitsu-assets/bg-portrait.mp4" type="video/mp4">
+    </video>
+    
+    <video id="bg-landscape" autoplay muted loop class="bg-landscape">
+        <source src="running-zenitsu-assets/bg-landscape.mp4" type="video/mp4">
+    </video>
+
+    <img id="image-bg" src="running-zenitsu-assets/bg-portrait-static.png" alt="">
+
+    <div class="container">
+        <div class="game-container" id="game-container">
+            <div class="gold-container">
+                <div id="gold-text">Gold : </div>
+                <div id="gold-value">0</div>
+            </div>
+
+            <div class="highest-gold">
+                <div id="highest-text">Highest Gold : </div>
+                <div id="highest-value">0</div>
+            </div>
+
+            <img class="arena-bg" id="arena-bg" src="running-zenitsu-assets/background-arena.gif">
+            <img id="character" src="running-zenitsu-assets/idle.gif" alt="Character">
+            <div id="gameover-text">
+                <span>GAME OVER</span>
+            </div>
+        </div>
+
+        <div class="start-container">
+           <img class="button start-button" src="running-zenitsu-assets/start-button.gif">
+        </div>
+
+        <!-- <div id="arrow-button">
+            <img id="arrow-left" src="running-zenitsu-assets/left-arrow.svg">
+            <img id="arrow-right" src="running-zenitsu-assets/right-arrow.svg">
+        </div> -->
+
+
+        <button class="restart">Restart Game</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
