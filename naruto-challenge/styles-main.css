@@ -18,8 +18,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    margin: 1rem;
-    
+    margin: 1rem;   
 }
 
 #header-title {
@@ -393,7 +392,7 @@ h1 {
     }
     #ichiraku-menu {
         width: 70vw;
-        height: 40vh;
+        height: 50vh;
     }
     
     .choices-container {
