@@ -57,8 +57,11 @@ h1 {
 }
 
 #feedback-container {
+<<<<<<< HEAD
     margin: 0;
     padding: 0;
+=======
+>>>>>>> 02d1a7c (lower quality images)
     position: absolute;
     top: 20%;
     left: 50%;
@@ -93,7 +96,10 @@ h1 {
 
 #ichiraku-menu {
     position: fixed;
+<<<<<<< HEAD
     margin-top: -10rem;
+=======
+>>>>>>> 02d1a7c (lower quality images)
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -187,7 +193,11 @@ h1 {
     flex-direction: row;
     width: 70vw;
     justify-content: center;
+<<<<<<< HEAD
     margin-top: 2rem;
+=======
+    margin-top: 0;
+>>>>>>> 02d1a7c (lower quality images)
 }
 
 #score {
@@ -207,6 +217,7 @@ h1 {
     color: #fec494;
     left: 220px;
     z-index: 1;
+    margin-top: -20%;
 }
 
 
@@ -264,7 +275,11 @@ h1 {
 #play-again {
     transform: scale(1.1);
     transition: .2s;
+<<<<<<< HEAD
     margin-top: 5rem;
+=======
+    margin-top: 10rem;
+>>>>>>> 02d1a7c (lower quality images)
 }
 
 
