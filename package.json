@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 {
   "devDependencies": {
     "typescript": "^5.8.3"
   }
 }
+=======
+{
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
+>>>>>>> fc2acc299e20635311906b5ee1eb1bf55b482f82
