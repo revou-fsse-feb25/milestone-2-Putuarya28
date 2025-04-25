@@ -19,18 +19,24 @@ let isGameOver = false;
 let currentScore = 0;
 let playingTime = 0;
 let feedbackTimeout;
-const pictures = {
-    correct: 'naruto-challenge-assets/naruto-correct-static.jpg',
-    gameover: 'naruto-challenge-assets/naruto-gameover-static.png',
-    wrong: 'naruto-challenge-assets/naruto-wrong-static.png',
-    narutoEating: 'naruto-challenge-assets/naruto-eating-static.png'
-};
+
 const video = {
-    correct: 'naruto-challenge-assets/naruto-correct.mp4',
-    gameover: 'naruto-challenge-assets/naruto-gameover.mp4',
-    wrong: 'naruto-challenge-assets/naruto-wrong.mp4',
-    narutoEating: 'naruto-challenge-assets/naruto-eating.mp4'
+    correct: document.createElement("video"),
+    gameover: document.createElement("video"),
+    wrong: document.createElement("video"),
+    narutoEating: document.createElement("video")
 };
+
+video.correct.src = "naruto-challenge-assets/naruto-correct.mp4";
+video.gameover.src = "naruto-challenge-assets/naruto-gameover.mp4";
+video.wrong.src = "naruto-challenge-assets/naruto-wrong.mp4";
+video.narutoEating.src = "naruto-challenge-assets/naruto-eating.mp4";
+
+video.correct.preload = "auto";
+video.gameover.preload = "auto";
+video.wrong.preload = "auto";
+video.narutoEating.preload = "auto";
+
 function updateScore() {
     if (scoreValue) {
         scoreValue.innerText = currentScore.toString();
@@ -41,21 +47,7 @@ function finalScore() {
         finalScoreValue.innerText = currentScore.toString();
     }
 }
-function switchFormat() {
-    if (!feedbackImage || !feedbackVideo)
-        return;
-    if (window.innerWidth < 1024) {
-        feedbackImage.style.display = "block";
-        feedbackVideo.style.display = "none";
-        feedbackVideo.src = "";
-    }
-    else {
-        feedbackVideo.style.display = "block";
-        feedbackImage.style.display = "none";
-    }
-}
-window.onload = switchFormat;
-window.addEventListener("resize", switchFormat);
+
 images.forEach(img => {
     img.addEventListener('click', () => {
         if (isGameOver)
@@ -73,17 +65,15 @@ images.forEach(img => {
                 feedbackContainer.style.display = "flex";
             setTimeout(() => { if (feedbackContainer)
                 feedbackContainer.style.display = "none"; }, 4000);
-            switchFormat();
-            if (feedbackImage)
-                feedbackImage.src = pictures.correct;
             if (feedbackVideo)
-                feedbackVideo.src = video.correct;
+                feedbackVideo.replaceWith(video.correct);
+                video.correct.currentTime = 0;
+                video.correct.play();
             setTimeout(() => {
-                switchFormat();
-                if (feedbackImage)
-                    feedbackImage.src = pictures.narutoEating;
                 if (feedbackVideo)
-                    feedbackVideo.src = video.narutoEating;
+                    feedbackVideo.replaceWith(video.narutoEating);
+                    video.narutoEating.currentTime = 0;
+                    video.narutoEating.play();
                 setTimeout(() => {
                     restartGame();
                 }, 2000);
@@ -100,11 +90,10 @@ images.forEach(img => {
                     feedbackContainer.style.display = "flex";
                 setTimeout(() => { if (feedbackContainer)
                     feedbackContainer.style.display = "none"; }, 2000);
-                switchFormat();
-                if (feedbackImage)
-                    feedbackImage.src = pictures.wrong;
                 if (feedbackVideo)
-                    feedbackVideo.src = video.wrong;
+                    feedbackVideo.replaceWith(video.wrong);
+                    video.wrong.currentTime = 0;
+                    video.wrong.play();
                 const selectedElement = document.getElementById(selectedImageId);
                 if (selectedElement && clueIndomie?.contains(selectedElement)) {
                     console.log("Indomie selected! Time to enjoy some legendary noodles.");
@@ -120,9 +109,7 @@ images.forEach(img => {
                     setTimeout(() => { if (showclueSedaap)
                         showclueSedaap.style.display = "none"; }, 2000);
                 }
-                else {
-                    console.log("No valid image found.");
-                }
+
                 console.log(attempt);
                 feedbackTimeout = window.setTimeout(() => {
                     if (feedbackImage)
@@ -132,11 +119,9 @@ images.forEach(img => {
             else {
                 if (ichirakuMenu)
                     ichirakuMenu.style.display = "none";
-                switchFormat();
-                if (feedbackImage)
-                    feedbackImage.src = pictures.gameover;
                 if (feedbackVideo)
-                    feedbackVideo.src = video.gameover;
+                    feedbackVideo.replaceWith(video.narutoEating);
+                    video.gameover.play();
                 isGameOver = true;
                 if (gameOver)
                     gameOver.style.display = "flex";
@@ -156,7 +141,7 @@ function restartGame() {
         feedbackImage.src = "";
     if (feedbackImage)
         feedbackImage.style.display = "none";
-    switchFormat();
+    
     let newImageId = imageIds[Math.floor(Math.random() * imageIds.length)];
     while (newImageId === selectedImageId) {
         selectedImageId = imageIds[Math.floor(Math.random() * imageIds.length)];

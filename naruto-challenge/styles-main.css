@@ -28,6 +28,8 @@ body {
     top: 0;
     left: 0;
     margin: 2rem;
+    position: fixed;
+    font-size: 2rem;
 }
 
 h1 {
@@ -195,7 +197,7 @@ h1 {
     padding: .2rem 2rem .2rem 2rem;
     background-color: #784216;
     border-radius: 2rem;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 #score-text {
@@ -335,7 +337,7 @@ h1 {
 @media screen and (min-width: 1440px) {
 
     html {
-        font-size: 15px;
+        font-size: 20px;
     }
 
     .indomie:hover .variant {
@@ -380,7 +382,7 @@ h1 {
     }
 
     .score-container {
-        margin-top: 10rem;
+        margin-top: 25rem;
     }
 
     #score-text {
